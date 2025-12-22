@@ -87,4 +87,4 @@ Sinta-se à vontade para entrar em contato comigo para oportunidades ou networki
 
 ---
 
-Desenvolvido com 💜 por **Maria Eduarda**.
+Desenvolvido por **Maria Eduarda**.
