@@ -53,7 +53,7 @@ Se você quiser baixar e testar este projeto na sua máquina:
 
 1. **Clone o repositório:**
 ```bash
-git clone [https://github.com/MaduSantoss/meu-portfolio.git](https://github.com/MaduSantoss/meu-portfolio.git)
+git clone [https://github.com/MaduSantoss/meu-portfolio.git]
 
 ```
 
