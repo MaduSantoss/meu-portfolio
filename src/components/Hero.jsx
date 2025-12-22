@@ -1,7 +1,7 @@
 import styled, { keyframes } from 'styled-components';
 import { FaGithub, FaLinkedin, FaWhatsapp, FaEnvelope } from 'react-icons/fa';
 import { motion } from 'framer-motion';
-import heroImg from '../assets/img_profile.jpeg'; 
+import heroImg from '../assets/img_profile.jpg'; 
 
 
 const float = keyframes`

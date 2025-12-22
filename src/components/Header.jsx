@@ -81,7 +81,8 @@ const NavLink = styled.a`
 `;
 
 const Button = styled(motion.a)`
-  background: rgba(138, 79, 255, 0.1);
+  background: ${props => (props.$active ? 'var(--accent-color)' : 'rgba(138, 79, 255, 0.1)')};
+  
   border: 1px solid var(--accent-color);
   color: white;
   padding: 8px 24px;
@@ -115,10 +116,8 @@ const MobileMenu = styled(motion.div)`
   background: #0f0f14;
   display: flex;
   flex-direction: column;
-  
   justify-content: flex-start; 
   padding-top: 120px; 
-  
   align-items: center;
   gap: 40px;
   z-index: 9998;
@@ -148,7 +147,12 @@ const Header = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['home', 'about', 'skills', 'projects'];
+      if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 50) {
+        setActiveSection('contact');
+        return; 
+      }
+
+      const sections = ['home', 'about', 'skills', 'projects', 'contact'];
       
       for (const sectionId of sections) {
         const element = document.getElementById(sectionId);
@@ -183,7 +187,12 @@ const Header = () => {
         <NavLink href="#skills" $active={activeSection === 'skills'}>Tecnologias</NavLink> 
         <NavLink href="#projects" $active={activeSection === 'projects'}>Projetos</NavLink>
         
-        <Button href="#contact" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+        <Button 
+          href="#contact" 
+          $active={activeSection === 'contact'}
+          whileHover={{ scale: 1.05 }} 
+          whileTap={{ scale: 0.95 }}
+        >
           Vamos Conversar
         </Button>
       </Nav>
@@ -209,12 +218,14 @@ const Header = () => {
               href="#contact" 
               onClick={toggle}
               style={{ 
-                color: 'var(--accent-color)', 
+                color: activeSection === 'contact' ? 'white' : 'var(--accent-color)', 
+                background: activeSection === 'contact' ? 'var(--accent-color)' : 'transparent',
                 border: '1px solid var(--accent-color)',
                 padding: '10px 30px',
                 borderRadius: '50px',
                 textDecoration: 'none',
-                fontSize: '1.2rem'
+                fontSize: '1.2rem',
+                fontWeight: '600'
               }}
             >
               Vamos Conversar
